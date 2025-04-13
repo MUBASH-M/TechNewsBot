@@ -1,12 +1,16 @@
 from telegram import Update
 from telegram.ext import ContextTypes
-from src.news_api import fetch_latest_technology_news
+from src.news_api import fetch_news_by_category
 
 async def latest_news_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
-        articles = fetch_latest_technology_news()
+        category = 'technology'  # Default category
+        if context.args:
+            category = context.args[0].lower()
+
+        articles = fetch_news_by_category(category)
         if not articles:
-            await update.message.reply_text("No technology news available at the moment.")
+            await update.message.reply_text(f"No news available for category: {category}.")
             return
 
         for article in articles[:5]:  # Limit to 5 articles

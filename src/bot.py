@@ -1,3 +1,8 @@
+import sys
+
+# Add the workspace directory to the Python module search path
+sys.path.append('/workspaces/TechNewsBot')
+
 from dotenv import load_dotenv
 import os
 
@@ -10,6 +15,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from src.commands.start import start_command
 from src.commands.latest_news import latest_news_command
+from src.commands.tag import tag_command
 
 # Initialize the bot application
 app = ApplicationBuilder().token(os.environ['TELEGRAM_BOT_TOKEN']).build()
@@ -17,6 +23,9 @@ app = ApplicationBuilder().token(os.environ['TELEGRAM_BOT_TOKEN']).build()
 # Register command handlers
 app.add_handler(CommandHandler("start", start_command))
 app.add_handler(CommandHandler("latest", latest_news_command))
+
+# Register the new /tag command
+app.add_handler(CommandHandler("tag", tag_command))
 
 # Start the bot
 if __name__ == "__main__":
