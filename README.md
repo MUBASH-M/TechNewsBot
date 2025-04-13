@@ -19,11 +19,12 @@ TechNewsBot is a Telegram bot that fetches and shares the latest technology news
    ```bash
    git clone <repository-url>
    ```
+### Installation (continued)
 2. Navigate to the project directory:
    ```bash
    cd TechNewsBot
    ```
-3. Install the required Python packages:
+3. Install the required dependencies:
    ```bash
    pip install -r requirements.txt
    ```
@@ -35,43 +36,34 @@ TechNewsBot is a Telegram bot that fetches and shares the latest technology news
    NEWSAPI_KEY=<your-newsapi-key>
    ```
 
-### Running the Bot
-Run the bot using the following command:
-```bash
-python src/bot.py
-```
+### Usage
+1. Start the bot by running the following command:
+   ```bash
+   python src/bot.py
+   ```
+2. Interact with the bot on Telegram using the following commands:
+   - `/latest_news` - Fetch the latest technology news.
+   - `/start` - Start interacting with the bot.
+   - `/tag <keyword>` - Get news articles related to a specific keyword.
 
-## Project Structure
-
-The project is organized as follows:
-
+### Project Structure
 ```
 TechNewsBot/
 ├── README.md
 ├── requirements.txt
 ├── src/
-│   ├── bot.py                # Main bot logic
-│   ├── news_api.py           # Handles interactions with the NewsAPI
-│   ├── commands/             # Contains bot command handlers
-│   │   ├── latest_news.py    # Command to fetch the latest news
-│   │   ├── start.py          # Command to start the bot
-│   ├── utils/                # Utility modules
-│   │   ├── logger.py         # Logging utilities
+│   ├── bot.py          # Main bot script
+│   ├── news_api.py     # Handles interactions with NewsAPI
+│   ├── commands/       # Contains bot command scripts
+│   │   ├── latest_news.py
+│   │   ├── start.py
+│   │   └── tag.py
+│   └── utils/          # Utility scripts
+│       └── logger.py   # Logging utility
 ```
 
-## Recent Updates
+### Contributing
+Contributions are welcome! Please fork the repository and submit a pull request.
 
-- Added modular command handlers under `src/commands/` for better scalability.
-- Introduced a `logger.py` utility in `src/utils/` for improved logging and debugging.
-
-## Usage
-
-1. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. Run the bot:
-   ```bash
-   python src/bot.py
-   ```
+### License
+This project is licensed under the MIT License. See the LICENSE file for details.
