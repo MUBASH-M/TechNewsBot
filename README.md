@@ -42,25 +42,36 @@ python src/bot.py
 ```
 
 ## Project Structure
+
+The project is organized as follows:
+
 ```
 TechNewsBot/
 ├── README.md
 ├── requirements.txt
-├── .env.example
 ├── src/
-│   ├── bot.py
-│   ├── news_api.py
-│   ├── commands/
-│   │   ├── __init__.py
-│   │   ├── start.py
-│   │   ├── latest_news.py
-│   └── utils/
-│       ├── __init__.py
-│       ├── logger.py
-└── tests/
-    ├── test_news_api.py
-    ├── test_bot.py
+│   ├── bot.py                # Main bot logic
+│   ├── news_api.py           # Handles interactions with the NewsAPI
+│   ├── commands/             # Contains bot command handlers
+│   │   ├── latest_news.py    # Command to fetch the latest news
+│   │   ├── start.py          # Command to start the bot
+│   ├── utils/                # Utility modules
+│   │   ├── logger.py         # Logging utilities
 ```
 
-## License
-This project is licensed under the MIT License.
+## Recent Updates
+
+- Added modular command handlers under `src/commands/` for better scalability.
+- Introduced a `logger.py` utility in `src/utils/` for improved logging and debugging.
+
+## Usage
+
+1. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Run the bot:
+   ```bash
+   python src/bot.py
+   ```
