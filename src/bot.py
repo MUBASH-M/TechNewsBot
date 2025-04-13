@@ -1,12 +1,10 @@
-import sys
-
-# Add the workspace directory to the Python module search path
-sys.path.append('/workspaces/TechNewsBot')
-
+from dotenv import load_dotenv
 import os
 
-# Set the TELEGRAM_BOT_TOKEN environment variable
-os.environ['TELEGRAM_BOT_TOKEN'] = '7827972135:AAFJiQ4BKrJ31a4SAN5Mn5UFEhGFsy_cMOE'
+# Load environment variables from .env file
+load_dotenv()
+
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
